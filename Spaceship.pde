@@ -1,44 +1,30 @@
-Spaceship neil;
-Star [] stars = new Star[200];
-public void setup() 
-{
-  size(500,500);
-  background(0);
-  neil = new Spaceship();
-  for(int i = 0; i < stars.length; i++) {
-    stars[i] = new Star();
-  }
-}
+class Spaceship extends Floater  
+{   
+     public Spaceship() {
+       myColor = 255;
+       myCenterY = 250;
+       myCenterX = 250;
+       myXspeed = 0;
+       myYspeed = 0; 
+       myPointDirection = 0;
+       corners = 4;
+       xCorners = new int[corners];
+       yCorners = new int[corners];         
+       xCorners[0] = -10;
+       yCorners[0] = -8;
+       xCorners[1] = 16;
+       yCorners[1] = 0;
+       xCorners[2] = -10;
+       yCorners[2] = 8; 
+       xCorners[3] = -2;
+       yCorners[3] = 0;
+   }
+   
 
-public void keyPressed() {
-  if(key == 'h') {
-    neil.hyperspace();
-   
-  }
-  if(key == 'w') {
-    neil.accelerate(0.5);
-   
-  }
-  if(key == 'a') {
-    neil.turn(-7);
-   
-  }
-  if(key == 's') {
-    neil.accelerate(-0.5);
-   
-  }
-  if(key == 'd') {
-    neil.turn(7);
-   
-  }
-}
-public void draw() 
-{
-  background(0);
-  neil.show();
-  for(int i=0; i<stars.length; i++) {
-    stars[i].show();
-  }
-  neil.move();
-  neil.show();
+   public void hyperspace() {
+     myXspeed = myYspeed = 0;
+     myPointDirection = Math.random()*500;
+     myCenterX = Math.random()*500;
+     myCenterY = Math.random()*500;
+   }
 }
