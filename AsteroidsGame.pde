@@ -1,10 +1,44 @@
-//your variable declarations here
+Spaceship neil;
+Star [] stars = new Star[200];
 public void setup() 
 {
-  //your code here
+  size(500,500);
+  background(0);
+  neil = new Spaceship();
+  for(int i = 0; i < stars.length; i++) {
+    stars[i] = new Star();
+  }
+}
+
+public void keyPressed() {
+  if(key == 'h') {
+    neil.hyperspace();
+   
+  }
+  if(key == 'w') {
+    neil.accelerate(0.5);
+   
+  }
+  if(key == 'a') {
+    neil.turn(-7);
+   
+  }
+  if(key == 's') {
+    neil.accelerate(-0.5);
+   
+  }
+  if(key == 'd') {
+    neil.turn(7);
+   
+  }
 }
 public void draw() 
 {
-  //your code here
+  background(0);
+  neil.show();
+  for(int i=0; i<stars.length; i++) {
+    stars[i].show();
+  }
+  neil.move();
+  neil.show();
 }
-
