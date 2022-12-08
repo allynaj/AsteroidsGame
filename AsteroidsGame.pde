@@ -28,8 +28,8 @@ public void keyPressed() {
   if(key == 'd') 
     neil.turn(7);
   if(key == 'j')
-    pew.add(new Bullet(1));
-}
+    pew.add(new Bullet(neil));
+} 
 public void draw() {
   background(0);
   neil.show();
@@ -42,9 +42,17 @@ public void draw() {
     armstrong.get(i).move();
     armstrong.get(i).show();
     double distance = dist((float)neil.getCenterX(), (float)neil.getCenterY(), (float)armstrong.get(i).getCenterX(), (float)armstrong.get(i).getCenterY());
-    if(distance<15)
+    if(distance<23)
       armstrong.remove(i);
   }
+  for(int i = 0; i < pew.size(); i++) {
+     double distance = dist((float)pew.get(i).getCenterX(), (float)pew.get(i).getCenterY(), (float)armstrong.get(i).getCenterX(), (float)armstrong.get(i).getCenterY());
+     if(distance<20) {
+       armstrong.remove(i);
+       pew.remove(i);
+     }
+     break;
+   }
   for(int i = 0; i < pew.size(); i++) {
     pew.get(i).move();
     pew.get(i).show();
