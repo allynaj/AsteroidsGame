@@ -8,7 +8,19 @@ class Bullet extends Floater {
     accelerate(6.0);
   }
   public void show() {
-    ellipse((float)myCenterX,(float)myCenterY,10,10); 
-  ]
+    fill(255,255,0);
+    ellipse((float)myCenterX,(float)myCenterY,5,5); 
+  }
+  public void move () {           
+    myCenterX += myXspeed;    
+    myCenterY += myYspeed;     
+  }   
+  
+  public double getCenterX() {
+    return myCenterX;
+  }
+  public double getCenterY() {
+    return myCenterY;
+  }
   
 }
