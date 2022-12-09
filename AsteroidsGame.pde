@@ -12,7 +12,7 @@ public void setup()
   for(int i = 0; i < stars.length; i++) {
     stars[i] = new Star();
   }
-  for(int i = 0; i<10; i++) 
+  for(int i = 0; i<20; i++) 
     armstrong.add(new Asteroid());
 }
 
@@ -32,7 +32,6 @@ public void keyPressed() {
 } 
 public void draw() {
   background(0);
-  neil.show();
   for(int i=0; i<stars.length; i++) {
     stars[i].show();
   }
@@ -42,16 +41,18 @@ public void draw() {
     armstrong.get(i).move();
     armstrong.get(i).show();
     double distance = dist((float)neil.getCenterX(), (float)neil.getCenterY(), (float)armstrong.get(i).getCenterX(), (float)armstrong.get(i).getCenterY());
-    if(distance<23)
+    if(distance<23) {
       armstrong.remove(i);
-  }
-  for(int i = 0; i < pew.size(); i++) {
-     double distance = dist((float)pew.get(i).getCenterX(), (float)pew.get(i).getCenterY(), (float)armstrong.get(i).getCenterX(), (float)armstrong.get(i).getCenterY());
-     if(distance<20) {
-       armstrong.remove(i);
-       pew.remove(i);
+     // break;
+    }
+      for(int j = 0; j < pew.size(); j++) {
+       double distance2 = dist((float)pew.get(j).getCenterX(), (float)pew.get(j).getCenterY(), (float)armstrong.get(i).getCenterX(), (float)armstrong.get(i).getCenterY());
+       if(distance2<20) {
+         armstrong.remove(i);
+         pew.remove(j);
+         break;
+       }
      }
-     break;
    }
   for(int i = 0; i < pew.size(); i++) {
     pew.get(i).move();
