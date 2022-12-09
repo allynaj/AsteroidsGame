@@ -43,7 +43,6 @@ public void draw() {
     double distance = dist((float)neil.getCenterX(), (float)neil.getCenterY(), (float)armstrong.get(i).getCenterX(), (float)armstrong.get(i).getCenterY());
     if(distance<23) {
       armstrong.remove(i);
-     // break;
     }
       for(int j = 0; j < pew.size(); j++) {
        double distance2 = dist((float)pew.get(j).getCenterX(), (float)pew.get(j).getCenterY(), (float)armstrong.get(i).getCenterX(), (float)armstrong.get(i).getCenterY());
